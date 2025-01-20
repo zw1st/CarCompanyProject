@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace PolinaPolechkaProject.Interfaces.Implementations;
 
@@ -50,7 +51,7 @@ public class CarImplementation : IOperations<Car>
         }
     }
 
-    public IEnumerable<Car> ReadAll(int? factoryId = null, int? carShopId = null, int? brandId = null, int? ownerId = null,
+    public IEnumerable<Car> ReadAll(string? factory = null, string? carShop = null, string? brand = null, string? owner = null,
                                  DateTime? releaseYearMin = null, DateTime? releaseYearMax = null,
                                  int? priceMin = null, int? priceMax = null,
                                  Entities.DriveType? driveType = null, bool? isAutomatic = null)
@@ -69,27 +70,28 @@ public class CarImplementation : IOperations<Car>
         {
             var builder = new QueryBuilder();
             var parameters = new DynamicParameters();
-
-            if (factoryId.HasValue)
+            //
+            if (!string.IsNullOrEmpty(factory))
             {
-                builder.AddCondition("FactoryId = @factoryId");
-                parameters.Add("@factoryId", factoryId.Value);
+                builder.AddCondition("Name ILIKE @Factory");
+                parameters.Add("@Factory", $"%{factory}%");
             }
-            if (carShopId.HasValue)
+            if (!string.IsNullOrEmpty(brand))
             {
-                builder.AddCondition("CarShopId = @carShopId");
-                parameters.Add("@carShopId", carShopId.Value);
+                builder.AddCondition("BrandName ILIKE @Brand");
+                parameters.Add("@Brand", $"%{brand}%");
             }
-            if (brandId.HasValue)
+            if (!string.IsNullOrEmpty(carShop))
             {
-                builder.AddCondition("BrandId = @brandId");
-                parameters.Add("@brandId", brandId.Value);
+                builder.AddCondition("ShopName ILIKE @CarShop");
+                parameters.Add("@CarShop", $"%{carShop}%");
             }
-            if (ownerId.HasValue)
+            if (!string.IsNullOrEmpty(owner))
             {
-                builder.AddCondition("OwnerId = @ownerId");
-                parameters.Add("@ownerId", ownerId.Value);
+                builder.AddCondition("FullName ILIKE @Owner");
+                parameters.Add("@Owner", $"%{owner}%");
             }
+            //
             if (releaseYearMin.HasValue)
             {
                 builder.AddCondition("ReleaseYear >= @releaseYearMin");
@@ -110,10 +112,10 @@ public class CarImplementation : IOperations<Car>
                 builder.AddCondition("Price <= @priceMax");
                 parameters.Add("@priceMax", priceMax.Value);
             }
-            if (driveType.HasValue)
+            if (driveType != Entities.DriveType.None)
             {
                 builder.AddCondition("DriveType = @driveType");
-                parameters.Add("@driveType", driveType.Value);
+                parameters.Add("@driveType", driveType);
             }
             if (isAutomatic.HasValue)
             {

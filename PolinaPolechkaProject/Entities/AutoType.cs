@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace PolinaPolechkaProject.Entities;
 
-public enum DriveType
+public enum AutoType
 {
     None = 0,
-    Back = 1,
-    Front = 2,
-    Full = 3
+    Auto = 1,
+    NotAuto = 2,
 }

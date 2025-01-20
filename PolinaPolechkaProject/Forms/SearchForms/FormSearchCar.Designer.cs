@@ -28,14 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            checkBoxAuto = new CheckBox();
-            comboBoxDrive = new ComboBox();
             numericUpDownPriceFrom = new NumericUpDown();
             dateTimePickerReleaseYearFrom = new DateTimePicker();
-            comboBoxCarShop = new ComboBox();
-            comboBoxFactory = new ComboBox();
-            comboBoxOwner = new ComboBox();
-            comboBoxBrand = new ComboBox();
             label7 = new Label();
             label8 = new Label();
             label9 = new Label();
@@ -48,27 +42,15 @@
             dateTimePickerReleaseYearTo = new DateTimePicker();
             buttonCancel = new Button();
             buttonSearch = new Button();
+            textBoxBrand = new TextBox();
+            textBoxCarShop = new TextBox();
+            textBoxOwner = new TextBox();
+            textBoxFactory = new TextBox();
+            comboBoxAuto = new ComboBox();
+            comboBoxDrive = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)numericUpDownPriceFrom).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownPriceTo).BeginInit();
             SuspendLayout();
-            // 
-            // checkBoxAuto
-            // 
-            checkBoxAuto.AutoSize = true;
-            checkBoxAuto.Location = new Point(283, 86);
-            checkBoxAuto.Name = "checkBoxAuto";
-            checkBoxAuto.Size = new Size(18, 17);
-            checkBoxAuto.TabIndex = 51;
-            checkBoxAuto.UseVisualStyleBackColor = true;
-            // 
-            // comboBoxDrive
-            // 
-            comboBoxDrive.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBoxDrive.FormattingEnabled = true;
-            comboBoxDrive.Location = new Point(283, 127);
-            comboBoxDrive.Name = "comboBoxDrive";
-            comboBoxDrive.Size = new Size(274, 28);
-            comboBoxDrive.TabIndex = 50;
             // 
             // numericUpDownPriceFrom
             // 
@@ -86,43 +68,7 @@
             dateTimePickerReleaseYearFrom.Name = "dateTimePickerReleaseYearFrom";
             dateTimePickerReleaseYearFrom.Size = new Size(125, 27);
             dateTimePickerReleaseYearFrom.TabIndex = 48;
-            dateTimePickerReleaseYearFrom.Value = new DateTime(2024, 6, 1, 0, 0, 0, 0);
-            // 
-            // comboBoxCarShop
-            // 
-            comboBoxCarShop.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBoxCarShop.FormattingEnabled = true;
-            comboBoxCarShop.Location = new Point(283, 211);
-            comboBoxCarShop.Name = "comboBoxCarShop";
-            comboBoxCarShop.Size = new Size(274, 28);
-            comboBoxCarShop.TabIndex = 47;
-            // 
-            // comboBoxFactory
-            // 
-            comboBoxFactory.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBoxFactory.FormattingEnabled = true;
-            comboBoxFactory.Location = new Point(283, 297);
-            comboBoxFactory.Name = "comboBoxFactory";
-            comboBoxFactory.Size = new Size(274, 28);
-            comboBoxFactory.TabIndex = 46;
-            // 
-            // comboBoxOwner
-            // 
-            comboBoxOwner.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBoxOwner.FormattingEnabled = true;
-            comboBoxOwner.Location = new Point(283, 251);
-            comboBoxOwner.Name = "comboBoxOwner";
-            comboBoxOwner.Size = new Size(274, 28);
-            comboBoxOwner.TabIndex = 45;
-            // 
-            // comboBoxBrand
-            // 
-            comboBoxBrand.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBoxBrand.FormattingEnabled = true;
-            comboBoxBrand.Location = new Point(283, 6);
-            comboBoxBrand.Name = "comboBoxBrand";
-            comboBoxBrand.Size = new Size(274, 28);
-            comboBoxBrand.TabIndex = 44;
+            dateTimePickerReleaseYearFrom.Value = new DateTime(1753, 1, 1, 0, 0, 0, 0);
             // 
             // label7
             // 
@@ -199,12 +145,12 @@
             // numericUpDownPriceTo
             // 
             numericUpDownPriceTo.Location = new Point(414, 46);
-            numericUpDownPriceTo.Maximum = new decimal(new int[] { 1000000, 0, 0, 0 });
+            numericUpDownPriceTo.Maximum = new decimal(new int[] { 1410065408, 2, 0, 0 });
             numericUpDownPriceTo.Minimum = new decimal(new int[] { 100, 0, 0, 0 });
             numericUpDownPriceTo.Name = "numericUpDownPriceTo";
             numericUpDownPriceTo.Size = new Size(143, 27);
             numericUpDownPriceTo.TabIndex = 52;
-            numericUpDownPriceTo.Value = new decimal(new int[] { 100000, 0, 0, 0 });
+            numericUpDownPriceTo.Value = new decimal(new int[] { 100000000, 0, 0, 0 });
             // 
             // dateTimePickerReleaseYearTo
             // 
@@ -235,23 +181,67 @@
             buttonSearch.UseVisualStyleBackColor = false;
             buttonSearch.Click += buttonSearch_Click;
             // 
+            // textBoxBrand
+            // 
+            textBoxBrand.Location = new Point(283, 6);
+            textBoxBrand.Name = "textBoxBrand";
+            textBoxBrand.Size = new Size(273, 27);
+            textBoxBrand.TabIndex = 56;
+            // 
+            // textBoxCarShop
+            // 
+            textBoxCarShop.Location = new Point(283, 216);
+            textBoxCarShop.Name = "textBoxCarShop";
+            textBoxCarShop.Size = new Size(273, 27);
+            textBoxCarShop.TabIndex = 58;
+            // 
+            // textBoxOwner
+            // 
+            textBoxOwner.Location = new Point(283, 259);
+            textBoxOwner.Name = "textBoxOwner";
+            textBoxOwner.Size = new Size(273, 27);
+            textBoxOwner.TabIndex = 59;
+            // 
+            // textBoxFactory
+            // 
+            textBoxFactory.Location = new Point(283, 292);
+            textBoxFactory.Name = "textBoxFactory";
+            textBoxFactory.Size = new Size(273, 27);
+            textBoxFactory.TabIndex = 60;
+            // 
+            // comboBoxAuto
+            // 
+            comboBoxAuto.FormattingEnabled = true;
+            comboBoxAuto.Location = new Point(284, 83);
+            comboBoxAuto.Name = "comboBoxAuto";
+            comboBoxAuto.Size = new Size(151, 28);
+            comboBoxAuto.TabIndex = 61;
+            // 
+            // comboBoxDrive
+            // 
+            comboBoxDrive.FormattingEnabled = true;
+            comboBoxDrive.Location = new Point(283, 124);
+            comboBoxDrive.Name = "comboBoxDrive";
+            comboBoxDrive.Size = new Size(151, 28);
+            comboBoxDrive.TabIndex = 62;
+            // 
             // FormSearchCar
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(568, 391);
+            Controls.Add(comboBoxDrive);
+            Controls.Add(comboBoxAuto);
+            Controls.Add(textBoxFactory);
+            Controls.Add(textBoxOwner);
+            Controls.Add(textBoxCarShop);
+            Controls.Add(textBoxBrand);
             Controls.Add(buttonCancel);
             Controls.Add(buttonSearch);
             Controls.Add(dateTimePickerReleaseYearTo);
             Controls.Add(numericUpDownPriceTo);
-            Controls.Add(checkBoxAuto);
-            Controls.Add(comboBoxDrive);
             Controls.Add(numericUpDownPriceFrom);
             Controls.Add(dateTimePickerReleaseYearFrom);
-            Controls.Add(comboBoxCarShop);
-            Controls.Add(comboBoxFactory);
-            Controls.Add(comboBoxOwner);
-            Controls.Add(comboBoxBrand);
             Controls.Add(label7);
             Controls.Add(label8);
             Controls.Add(label9);
@@ -270,15 +260,8 @@
         }
 
         #endregion
-
-        private CheckBox checkBoxAuto;
-        private ComboBox comboBoxDrive;
         private NumericUpDown numericUpDownPriceFrom;
         private DateTimePicker dateTimePickerReleaseYearFrom;
-        private ComboBox comboBoxCarShop;
-        private ComboBox comboBoxFactory;
-        private ComboBox comboBoxOwner;
-        private ComboBox comboBoxBrand;
         private Label label7;
         private Label label8;
         private Label label9;
@@ -291,5 +274,11 @@
         private DateTimePicker dateTimePickerReleaseYearTo;
         private Button buttonCancel;
         private Button buttonSearch;
+        private TextBox textBoxBrand;
+        private TextBox textBoxCarShop;
+        private TextBox textBoxOwner;
+        private TextBox textBoxFactory;
+        private ComboBox comboBoxAuto;
+        private ComboBox comboBoxDrive;
     }
 }

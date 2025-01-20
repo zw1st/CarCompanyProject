@@ -100,10 +100,10 @@ public partial class FormCarsViewer : Form
         }
     }
 
-    private void LoadList(int? factoryId = null, int? carShopId = null, int? brandId = null, int? ownerId = null,
+    private void LoadList(string? factoryId = null, string? carShopId = null, string? brandId = null, string? ownerId = null,
                                  DateTime? releaseYearMin = null, DateTime? releaseYearMax = null,
                                  int? priceMin = null, int? priceMax = null,
-                                 Entities.DriveType? driveType = null, bool? isAutomatic = null)
+                                 Entities.DriveType driveType = Entities.DriveType.None, bool? isAutomatic = null)
     {
         dataGridView1.DataSource = _carImplementation.ReadAll(factoryId, carShopId, brandId, ownerId, releaseYearMin, releaseYearMax, priceMin, priceMax, driveType, isAutomatic);
         dataGridView1.Columns["OwnerId"].Visible = false;
@@ -145,10 +145,10 @@ public partial class FormCarsViewer : Form
         }
     }
 
-    private void GetSearchImage(int? factoryId = null, int? carShopId = null, int? brandId = null, int? ownerId = null,
+    private void GetSearchImage(string? factoryId = null, string? carShopId = null, string? brandId = null, string? ownerId = null,
                                  DateTime? releaseYearMin = null, DateTime? releaseYearMax = null,
                                  int? priceMin = null, int? priceMax = null,
-                                 Entities.DriveType? driveType = null, bool? isAutomatic = null)
+                                 Entities.DriveType driveType = Entities.DriveType.None, bool? isAutomatic = null)
     {
         LoadList(factoryId, carShopId, brandId, ownerId, releaseYearMin, releaseYearMax, priceMin, priceMax, driveType, isAutomatic); ;
     }
